@@ -31,6 +31,7 @@ const onSignInSuccess = (response) => {
 const onSignInFailure = () => {
   $('form').trigger('reset')
   $('#message').text('Something went wrong Please try again !')
+  console.log('no')
 }
 
 const onChPwSuccess = () => {
@@ -41,7 +42,7 @@ const onChPwSuccess = () => {
 const onChPwFailure = () => {
   $('#change-pw')[0].reset()
   $('#message')
-    .text('Password Do not match, Try agin!')
+    .text('Something Wrong Please Try agin!')
     .show()
     .delay(3000)
     .fadeOut()

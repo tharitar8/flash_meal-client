@@ -18,23 +18,12 @@ const signIn = (data) => {
     data: data
   })
 }
-
-const signOut = (token) => {
-  return $.ajax({
-    url: config.apiUrl + '/sign-out',
-    method: 'DELETE',
-    headers: {
-      Authorization: 'Bearer ' + token
-    }
-  })
-}
-
 const changePassword = (data) => {
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/change-password',
     headers: {
-      Authorization: 'Bearer ' + store.token
+      Authorization: 'Bearer ' + store.user.token
     },
     data: {
       passwords: {
@@ -44,6 +33,17 @@ const changePassword = (data) => {
     }
   })
 }
+
+const signOut = () => {
+  return $.ajax({
+    url: config.apiUrl + '/sign-out',
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
