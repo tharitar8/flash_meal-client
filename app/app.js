@@ -1,6 +1,7 @@
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 const authEvents = require('../app/auth/events')
+const recipeEvents = require('./recipe/events')
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
@@ -9,4 +10,8 @@ $(() => {
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-pw').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('click', authEvents.onSignOut)
+  $('#add-recipe').on('submit', recipeEvents.onRecipeListCreate)
+  $('#showall-recipe').on('submit', recipeEvents.onRecipeListIndex)
+  $('#edit').on('submit', recipeEvents.onRecipeListEdit)
+  $('#delete').on('click', recipeEvents.onRecipeListRemove)
 })

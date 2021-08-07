@@ -18,23 +18,29 @@ const onRecipeListIndex = (event) => {
     .catch(ui.indexRecipeFailure)
 }
 
-// const onRecipeListEdit = () => {
-//   event.preventDefault()
-// //   store.recipeList._id = eve
-// }
+const onRecipeListEdit = (event) => {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  const recipeListId = $(event.target).data('id')
+  api.recipeListEdit(data, recipeListId)
+    .then(ui.editRecipeSuccess)
+    .then(() => {
+      onRecipeListIndex(event)
+    })
+    .catch(ui.editRecipeFailure)
+}
 
-// const onRecipeListRemove = (event) => {
-//   const recipeListId =
-//   event.preventDefault()
-//   api.recipeListRemove()
-//     .then(ui.removeRecipeSuccess)
-//     .catch(ui.removeRecipeFailure)
-// }
+const onRecipeListRemove = (event) => {
+  event.preventDefault()
+  const recipeListId = $(event.target).data('id')
+  api.recipeListRemove(recipeListId)
+    .then(() => ui.removeRecipeSuccess(recipeListId))
+    .catch(ui.removeRecipeFailure)
+}
 
 module.exports = {
   onRecipeListCreate,
-  onRecipeListIndex
-  // onRecipeListEdit,
-  // onRecipeListRemove
-
+  onRecipeListIndex,
+  onRecipeListEdit,
+  onRecipeListRemove
 }
