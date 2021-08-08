@@ -2,72 +2,71 @@
 const config = require('../config')
 const store = require('../store')
 
-const recipeListCreate = (data) => {
-  return $.ajax({
-    method: 'POST',
-    url: config.apiUrl + '/recipeslist',
-    headers: {
-      Authorization: 'Bearer ' + store.token
-    },
-    data: {
-      recipeList: {
-        title: data.recipeList.title,
-        ingredients: data.recipeList.ingredients,
-        steps: data.recipeList.steps,
-        time: data.recipeList.time
-      }
-    }
-  })
-}
-
-const recipeListIndex = () => {
+const indexRecipes = () => {
   return $.ajax({
     method: 'GET',
-    url: config.apiUrl + '/recipeslist',
+    url: config.apiUrl + '/recipes',
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
     data: {
-      recipeList: {
+      recipe: {
         owner: store.user._id
       }
     }
   })
 }
 
-const recipeListShow = () => {
+const showRecipe = (id) => {
   return $.ajax({
     method: 'GET',
-    url: config.apiUrl + '/recipeslist/' + store.recipeList._id,
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    }
-  })
-}
-const recipeListUpdate = (data) => {
-  return $.ajax({
-    method: 'PATCH',
-    url: config.apiUrl + '/recipeslist/' + store.recipeList._id,
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    },
-    data
-  })
-}
-const recipeListRemove = (recipeListId) => {
-  return $.ajax({
-    method: 'DELETE',
-    url: config.apiUrl + '/recipeslist/' + recipeListId,
+    url: config.apiUrl + '/recipes/' + id,
     headers: {
       Authorization: 'Bearer ' + store.user.token
     }
   })
 }
 
+const deleteRecipe = (id) => {
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/recipes/' + id,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
+const updateRecipe = (id, recipeData) => {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/recipes/' + id,
+    data: recipeData
+  })
+}
+
+const createRecipe = (data) => {
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/recipes',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: {
+      recipe: {
+        title: data.recipe.title,
+        ingredients: data.recipe.ingredients,
+        steps: data.recipe.steps,
+        time: data.recipe.time
+      }
+    }
+  })
+}
+
 module.exports = {
-  recipeListCreate,
-  recipeListIndex,
-  recipeListShow,
-  recipeListUpdate,
-  recipeListRemove
+  indexRecipes,
+  showRecipe,
+  deleteRecipe,
+  updateRecipe,
+  createRecipe
 }

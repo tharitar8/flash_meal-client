@@ -10,8 +10,16 @@ $(() => {
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-pw').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('click', authEvents.onSignOut)
-  $('#add-recipe').on('submit', recipeEvents.onRecipeListCreate)
-  $('#showall-recipe').on('submit', recipeEvents.onRecipeListIndex)
-  $('#edit').on('submit', recipeEvents.onRecipeListEdit)
-  $('#delete').on('click', recipeEvents.onRecipeListRemove)
+  // recipe events
+  $('#get-recipes').on('click', recipeEvents.onIndexRecipes)
+  $('#show-recipe-form').on('submit', recipeEvents.onShowRecipe)
+  $('#delete-recipe-form').on('submit', recipeEvents.onDeleteRecipe)
+  $('#update-recipe-form').on('submit', recipeEvents.onUpdateRecipe)
+  $('#create-recipe-form').on('submit', recipeEvents.onCreateRecipe)
+  $('#recipe-titles').on(
+    'click',
+    '.dynamic-delete-recipe',
+    recipeEvents.onDynamicDeleteRecipe
+  )
+  // $('#delete').on('click', recipeEvents.onDeleteRecipe)
 })
