@@ -149,29 +149,42 @@
           </form>
 
           <!-- <button id="create-list-btn" class="mt-5">Create a New Recipe</button> -->
-          <h3>Index Recipes</h3>
-          <button id="get-recipes">Show All Recipes</button>
 
-          <h3>Show Recipe</h3>
-          <form id="show-recipe-form">
-            <label>
-              Recipe ID
-            </label>
-            <input name="recipe[_id]" type="text">
+          <h3>Add a Recipe</h3>
+          <form style="display:flex" id="create-recipes" class="form"></form>
+          <form id="create-recipe-form">
+            <label>Recipe Title</label>
+            <input name="recipe[title]" type="text"
+            placeholder="Name">
+            <label>Ingredients</label>
+            <input name="recipe[ingredients]"
+            type="text" placeholder="ingredients">
+            <label>Steps:</label>
+            <input name="recipe[steps]" type="text" placeholder="How to">
+            <label>Time:</label>
+            <input name="recipe[time]" type="number" placeholder="Time">
             <button type="submit">Submit</button>
           </form>
 
+          <br>
+          <h3>All Recipes</h3>
+          <button id="get-recipes">Show All Recipes</button>
+          <br>
+
+
+<!--
             <h3>Delete Recipe</h3>
+            <button type="submit">Delete Recipe</button>
             <form id="delete-recipe-form">
               <label>Recipe ID</label>
               <input name="recipe[_id]" type="text">
-              <button type="submit">Submit</button>
-            </form>
 
-            <h3>Update Recipe</h3>
+            </form> -->
+            <br>
+            <h4>Update Recipe</h4>
             <form id="update-recipe-form">
-              <label>Recipe ID</label>
-              <input name="recipe[_id]" type="text">
+              <!-- <label> ID</label>
+              <input name="ID" type="text">
               <label>Recipe Title</label>
               <input name="recipe[title]" type="text">
               <label>Ingredients</label>
@@ -179,22 +192,19 @@
               <label>Steps:</label>
               <input name="recipe[steps]" type="text">
               <label>Time:</label>
-              <input name="recipe[time]" type="number">
-              <button type="submit">Submit</button>
+              <input name="recipe[time]" type="number"> -->
+              <button type="submit">Update Recipe</button>
             </form>
 
-            <h3>Add a Recipe</h3>
-            <form id="create-recipe-form">
-              <label>Recipe Title</label>
-              <input name="recipe[title]" type="text">
-              <label>Ingredients</label>
-              <input name="recipe[ingredients]" type="text">
-              <label>Steps:</label>
-              <input name="recipe[steps]" type="text">
-              <label>Time:</label>
-              <input name="recipe[time]" type="number">
-              <button type="submit">Submit</button>
-            </form>
+            <br>
+                      <!-- <h3>Show each Recipe</h3>
+                      <form id="show-recipe-form">
+                        <label>
+                          Recipe
+                        </label>
+                        <input name="recipe[_id]" type="text">
+                        <button type="submit">Show a Recipe</button>
+                        </form> -->
 
             <div id="created-recipe"></div>
             <div id="shown-recipe"></div>

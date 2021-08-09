@@ -35,10 +35,10 @@ const onDeleteRecipe = (event) => {
 const onUpdateRecipe = (event) => {
   event.preventDefault()
   const recipeData = getFormFields(event.target)
-  const recipeId = recipeData.recipe._id
+  const recipeId = $(event.target).data('id')
   // const recipeId = $(event.target).data('id')
   console.log('update')
-  api.updateRecipe(recipeId, recipeData)
+  api.updateRecipe(recipeData, recipeId)
     .then(ui.onUpdateRecipeSuccess)
     .catch(ui.onFailure)
 }
@@ -46,6 +46,7 @@ const onUpdateRecipe = (event) => {
 const onCreateRecipe = (event) => {
   event.preventDefault()
   const recipeData = getFormFields(event.target)
+
   console.log('add')
   api.createRecipe(recipeData)
     .then(ui.onCreateRecipeSuccess)
@@ -55,16 +56,22 @@ const onDynamicDeleteRecipe = (event) => {
   // console.log($(event.target).data('id'))
   const recipeId = $(event.target).data('id')
 
-  api.deleteBook(recipeId)
+  api.deleteRecipe(recipeId)
     .then(ui.onDeleteRecipeSuccess)
     .catch(ui.onFailure)
 }
-
+const onShowIngredients = (event) => {
+  console.log(event.target)
+  const id = $(event.target).data('id')
+  // target in jquery
+  $(`*[data-ingredient-id=${id}]`).show()
+}
 module.exports = {
   onIndexRecipes,
   onCreateRecipe,
   onShowRecipe,
   onUpdateRecipe,
   onDeleteRecipe,
-  onDynamicDeleteRecipe
+  onDynamicDeleteRecipe,
+  onShowIngredients
 }

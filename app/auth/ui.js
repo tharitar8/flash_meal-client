@@ -48,7 +48,6 @@ const onChPwSuccess = () => {
   $('#message-box').text('Password changed! ')
   $('#sign-in').show()
   $('#change-pw').hide()
-  $('container').hide()
   $('#close-box').on('click', () => {
     $('.dashboard').show()
   })

@@ -1,30 +1,36 @@
 // const store = require('../store')
+// const getFormFields = require('../../lib/get-form-fields')
 
 const onIndexRecipesSuccess = (response) => {
+  $('form').trigger('reset')
   $('#error-message').text('')
   // page modifications on successful call
-  console.log('in then')
-  console.log('response is: ', response)
-
+  // console.log('in then')
+  // console.log('response is: ', response)
   const recipes = response.recipes
-
   let recipeTitlesHtml = ''
-
   recipes.forEach((recipe) => {
     console.log(recipe)
     recipeTitlesHtml += `
-      <h4>${recipe.title} </h4>
-      <p>ID: ${recipe._id}</p>
-      <button class='dynamic-delete-book' data-id=${recipe._id}>Delete Recipe</button>
+      <p>${recipe.title} </p>
+
+      <button class='dynamic-delete-recipe' data-id=${recipe._id}
+      >Delete Recipe</button>
+       <button class='show-ingredients' data-id=${recipe._id}
+      >show this recipe</button>
+      <div class="hidden" data-ingredient-id=${recipe._id}>
+      <p>Ingredients: ${recipe.ingredients}</p>
+      <p>Steps: ${recipe.steps}</p>
+      <p>Time: ${recipe.time}</p></div>
     `
   })
-
   $('#recipe-titles').html(recipeTitlesHtml)
-  $('form').trigger('reset')
+  $('#update-recipe-form').show()
 }
 
 const onShowRecipeSuccess = (response) => {
   $('#error-message').text('')
+  $('#show-recipe-form').attr('recipe._id')
   $('#shown-recipe').html(`
     <h3>Title: ${response.recipe.title}</h3>
     <p>Ingredients: ${response.recipe.ingredients}</p>
@@ -41,12 +47,14 @@ const onDeleteRecipeSuccess = (response) => {
   $('form').trigger('reset')
 }
 
-const onUpdateRecipeSuccess = (response) => {
+const onUpdateRecipeSuccess = (id) => {
+  $('h4').show()
   $('#error-message').text('')
-  console.log(`Server response: ${response}`)
+  console.log(`Server response: ${id}`)
   $('#success-message').text('Recipe was updated')
   $('form').trigger('reset')
 }
+
 const onCreateRecipeSuccess = (response) => {
   $('#error-message').text('')
   console.log('Server response:', response)

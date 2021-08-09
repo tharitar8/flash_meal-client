@@ -13,11 +13,18 @@ $(() => {
   $('#sign-out').on('click', authEvents.onSignOut)
   $('#close-box').hide()
   $('.dashboard').hide()
+  $('h4').hide()
   // recipe events
+  $('#recipe-titles').on('click', '.show-ingredients', recipeEvents.onShowIngredients)
   $('#get-recipes').on('click', recipeEvents.onIndexRecipes)
   $('#show-recipe-form').on('submit', recipeEvents.onShowRecipe)
   $('#delete-recipe-form').on('submit', recipeEvents.onDeleteRecipe)
-  $('#update-recipe-form').on('submit', recipeEvents.onUpdateRecipe)
+  $('#update-recipe-form').hide()
+
+  $('#shown-recipe').on('click', recipeEvents.onShowRecipe)
+
+  $('#update-recipe-form').on('click', recipeEvents.onUpdateRecipe)
+
   $('#create-recipe-form').on('submit', recipeEvents.onCreateRecipe)
   $('#recipe-titles').on(
     'click',
