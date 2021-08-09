@@ -8,6 +8,7 @@ const recipeEvents = require('./recipe/events')
 $(() => {
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
+  $('#change-pw').hide()
   $('#change-pw').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('click', authEvents.onSignOut)
   // recipe events

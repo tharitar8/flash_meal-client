@@ -19,35 +19,42 @@
     <p id="message"></p>
     <p id="error-message"></p>
       <h1>Flash Meal Recipes</h1>
+      <div class="container">
 
       <div class="modal fade show" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-modal="true" style="display: block; padding-left: 15px;">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <button type="button" class="close d-flex align-items-center justify-content-center" data-dismiss="modal"
-                aria-label="Close">
-                <span aria-hidden="true" class="ion-ios-close"></span>
+
+              <button type="button" id="close-box" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
               </button>
 
+              <!-- <button type="button" class="close d-flex align-items-center justify-content-center" data-dismiss="modal"
+                aria-label="Close">
+                <span aria-hidden="true" class="ion-ios-close"></span>
+              </button> -->
+              <p id="message-box"></p>
             </div>
             <div class="row">
               <div class="col-md mb-md-10 p-10">
                 <div class="modal-body p-10">
-
+                  <form id="sign-in">
                   <h3 class="mb-10">Sign In</h3>
                   <form action="#" class="signin-form">
 
                     <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Username">
+                      <input name="credentials[email]" type="text" class="form-control" placeholder="Email">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control" placeholder="Password">
+                      <input name="credentials[password]" type="password" class="form-control" placeholder="Password">
                     </div>
                     <div class="form-group">
+
                       <button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign In</button>
                     </div>
-
+                    </form>
                     <div class="form-group d-md-flex">
                       <div class="form-check w-50">
                         <label class="custom-control fill-checkbox">
@@ -55,34 +62,39 @@
                       </div>
                     </div>
                   </form>
-
-                  <p class="w-100 text-center">Coming Soon Sign In With</p>
-                  <div class="social d-flex text-center">
-                    <a href="#" class="px-2 py-3 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Facebook</a>
-                    <a href="#" class="px-2 py-3 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> Twitter</a>
-                  </div>
                 </div>
               </div>
 
               <div class="col-md-1 divider"></div>
               <div class="col-md">
                 <div class="modal-body p-10">
-
+                  <form id="sign-up">
                   <h3 class="mb-2">Sign Up</h3>
+
                   <form action="#" class="signup-form">
 
                     <div class="form-group">
-                      <input type="email" class="form-control" placeholder="Email address">
+                      <input name="credentials[email]" type="email" class="form-control" placeholder="Email address">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control" placeholder="Password">
+                      <input name="credentials[password]" type="password" class="form-control" placeholder="Password">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control" placeholder="Password Confirmation">
+                      <input name="credentials[password_confirmation]" type="password" class="form-control" placeholder="Password Confirmation">
                     </div>
 
                     <div class="form-group">
                       <button type="submit" class="form-control btn btn-primary rounded submit px-3">Register</button>
+                    </div>
+                    </form>
+
+                    <div class="form-group">
+                    <form id="change-pw">
+                      <h2>Change Password</h2>
+                      <input placeholder="Old Password" type="password" name="passwords[old]" required>
+                      <input placeholder="New password" type="password" name="passwords[new]" required>
+                      <button type="submit" class="form-control btn btn-primary rounded submit px-3">Change Password</button>
+                    </form>
                     </div>
 
                     <div class="form-group">
@@ -97,37 +109,37 @@
           </div>
         </div>
       </div>
+    </div>
 
 
+          <!-- <h2>Sign Up</h2>
 
-          <h2>Sign Up</h2>
-          <form id="sign-up">
             <label>Email: </label>
             <input name="credentials[email]" type="email">
             <label>Password</label>
             <input name="credentials[password]" type="password">
             <label>Password Confirmation</label>
             <input name="credentials[password_confirmation]" type="password">
-            <input type="submit" value="Sign Up">
-          </form>
+            <input type="submit" value="Sign Up"> -->
 
-          <h2>Sign In</h2>
+
+          <!-- <h2>Sign In</h2>
           <form id="sign-in">
             <label>Email: </label>
             <input name="credentials[email]" type="email">
             <label>Password</label>
             <input name="credentials[password]" type="password">
             <input type="submit" value="Sign In">
-          </form>
+          </form> -->
 
-          <form id="change-pw">
+          <!-- <form id="change-pw">
             <h2>Change Password</h2>
             <input placeholder="Old Password" type="password" name="passwords[old]" required>
             <input placeholder="New password" type="password" name="passwords[new]" required>
             <button class="button-small salmon_dark rounded3" type="submit">change Password</button>
-          </form>
+          </form> -->
           <!-- <button class="btn btn-outline-danger" id="return" type="submit">Return</button> -->
-          <button id="sign-out">Sign Out</button>
+          <!-- <button id="sign-out">Sign Out</button> -->
 
         <div class="dashboard">
           <h2>Hi, Are you ready to share a recipe ? </h2>
