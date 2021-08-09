@@ -24,9 +24,16 @@ const onSignInSuccess = (response) => {
   $('#sign-in').hide()
   $('#sign-up').hide()
   $('h2').hide()
-  $('#message-box').text('Do you want to change a password ?')
+  $('#container').hide()
   $('#change-pw').show()
   $('#sign-out').show()
+  $('#close-box').show()
+  $('#close-box').on('click', () => {
+    $('.container').hide()
+  })
+  $('#close-box').on('click', () => {
+    $('.dashboard').show()
+  })
 }
 
 const onSignInFailure = () => {
@@ -41,6 +48,10 @@ const onChPwSuccess = () => {
   $('#message-box').text('Password changed! ')
   $('#sign-in').show()
   $('#change-pw').hide()
+  $('container').hide()
+  $('#close-box').on('click', () => {
+    $('.dashboard').show()
+  })
 }
 const onChPwFailure = () => {
   $('#change-pw')[0].reset()
@@ -49,7 +60,6 @@ const onChPwFailure = () => {
     .show()
     .delay(3000)
     .fadeOut()
-  $('#return').hide()
 }
 
 const onSignOutSuccess = () => {
@@ -60,7 +70,6 @@ const onSignOutSuccess = () => {
   $('#sign-up').show()
   $('#sign-in').show()
   $('h2').show()
-  $('#return').hide()
 }
 
 const onSignOutFailure = () => {
@@ -69,7 +78,6 @@ const onSignOutFailure = () => {
     .show()
     .delay(3000)
     .fadeOut()
-  $('#return').hide()
 }
 
 module.exports = {

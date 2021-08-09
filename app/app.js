@@ -11,6 +11,8 @@ $(() => {
   $('#change-pw').hide()
   $('#change-pw').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('click', authEvents.onSignOut)
+  $('#close-box').hide()
+  $('.dashboard').hide()
   // recipe events
   $('#get-recipes').on('click', recipeEvents.onIndexRecipes)
   $('#show-recipe-form').on('submit', recipeEvents.onShowRecipe)
