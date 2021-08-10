@@ -11,6 +11,7 @@ $(() => {
   $('#change-pw').hide()
   $('#change-pw').on('submit', authEvents.onChangePassword)
   $('#sign-out').hide()
+  $('#log-out').hide()
   $('#sign-out').on('click', authEvents.onSignOut)
   $('#log-out').on('click', authEvents.onSignOut)
   $('#close-box').hide()
