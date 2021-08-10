@@ -9,12 +9,16 @@ const onSignUpSuccess = (response) => {
   $('#message-box').text(
     'Thank you for signing up! Please sign in! ' + response.user.email
   )
+  $('.dashboard').hide()
+  $('#sign-out').hide()
 }
 
 const onSignUpFailure = () => {
   $('form').trigger('reset')
   $('#message-box').text('Something went wrong please try again !')
   $('#message').show()
+  $('.dashboard').hide()
+  $('#sign-out').hide()
 }
 
 const onSignInSuccess = (response) => {
@@ -22,6 +26,7 @@ const onSignInSuccess = (response) => {
   $('form').trigger('reset')
   $('#message-box').text('Welcome back! ' + response.user.email)
   $('#sign-in').hide()
+  $('#log-in').hide()
   $('#sign-up').hide()
   $('h2').hide()
   $('#container').hide()
@@ -41,6 +46,7 @@ const onSignInFailure = () => {
   $('#change-pw').hide()
   $('#message-box').text('Something went wrong Please try again !')
   console.log('no')
+  $('.dashboard').hide()
 }
 
 const onChPwSuccess = () => {
@@ -48,9 +54,9 @@ const onChPwSuccess = () => {
   $('#message-box').text('Password changed! ')
   $('#sign-in').show()
   $('#change-pw').hide()
-  $('#close-box').on('click', () => {
-    $('.dashboard').show()
-  })
+  // $('#close-box').on('click', () => {
+  $('.dashboard').hide()
+  // })
 }
 const onChPwFailure = () => {
   $('#change-pw')[0].reset()
@@ -59,16 +65,19 @@ const onChPwFailure = () => {
     .show()
     .delay(3000)
     .fadeOut()
+  $('.dashboard').hide()
 }
 
 const onSignOutSuccess = () => {
-  store.user.token = null
   $('#message-box').text("You've been logged out ").show().delay(3000).fadeOut()
-  $('#ch-pw').hide()
+  $('.container').show()
+  $('#close-box').hide()
+  $('#change-pw').hide()
   $('#sign-out').hide()
   $('#sign-up').show()
   $('#sign-in').show()
   $('h2').show()
+  $('.dashboard').hide()
 }
 
 const onSignOutFailure = () => {
@@ -77,6 +86,7 @@ const onSignOutFailure = () => {
     .show()
     .delay(3000)
     .fadeOut()
+  $('.dashboard').hide()
 }
 
 module.exports = {

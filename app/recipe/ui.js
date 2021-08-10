@@ -2,14 +2,14 @@
 // const getFormFields = require('../../lib/get-form-fields')
 
 const onIndexRecipesSuccess = (response) => {
-  $('form').trigger('reset')
+  $('.dashboard').trigger('reset')
   $('#error-message').text('')
   // page modifications on successful call
   // console.log('in then')
   // console.log('response is: ', response)
   const recipes = response.recipes
   let recipeTitlesHtml = ''
-  recipes.forEach((recipe) => {
+  recipes.forEach((recipe, index) => {
     console.log(recipe)
     recipeTitlesHtml += `
       <p>${recipe.title} </p>
@@ -19,9 +19,19 @@ const onIndexRecipesSuccess = (response) => {
        <button class='show-ingredients' data-id=${recipe._id}
       >show this recipe</button>
       <div class="hidden" data-ingredient-id=${recipe._id}>
-      <p>Ingredients: ${recipe.ingredients}</p>
-      <p>Steps: ${recipe.steps}</p>
-      <p>Time: ${recipe.time}</p></div>
+      <p>Ingredients:<span class="display-data-${index} display"> ${recipe.ingredients}</span>
+      <input value="${recipe.ingredients}" class="input-edit-recipe-${index} hidden" type="text"> </p>
+      <p>Steps:<span class="display-data-${index} display">${recipe.steps}</span>
+      <input value="${recipe.steps}" class="input-edit-recipe-${index}  hidden" type="text"></p>
+      <p>Time: <span class="display-data-${index} display">${recipe.time}</span>
+      <input value="${recipe.time}"  class="input-edit-recipe-${index} hidden" type="number"></p></div>
+
+      <button class='update-ingredients' data-index=${index} data-id=${recipe._id}
+      >Edit</button>
+
+      <button class='save-ingredients' data-index=${index} data-id=${recipe._id}
+      >save</button>
+
     `
   })
   $('#recipe-titles').html(recipeTitlesHtml)
@@ -37,7 +47,7 @@ const onShowRecipeSuccess = (response) => {
     <p>Steps: ${response.recipe.steps}</p>
     <p>Time: ${response.recipe.time}</p>
   `)
-  $('form').trigger('reset')
+  // $('.form').trigger('reset')
 }
 
 const onDeleteRecipeSuccess = (response) => {
@@ -52,23 +62,21 @@ const onUpdateRecipeSuccess = (id) => {
   $('#error-message').text('')
   console.log(`Server response: ${id}`)
   $('#success-message').text('Recipe was updated')
-  $('form').trigger('reset')
+  // $('.form').trigger('reset')
 }
 
 const onCreateRecipeSuccess = (response) => {
+  $('.dashboard').trigger('reset')
   $('#error-message').text('')
   console.log('Server response:', response)
   $('#created-recipe').html(`
     <h3>Title: ${response.recipe.title}</h3>
   `)
-  $('form').trigger('reset')
 }
 
 const onFailure = (error) => {
   $('#success-message').text('')
   $('#error-message').text(`Error making request: ${error.status}`)
-
-  $('form').trigger('reset')
 
   // $('#message').addClass('error-message')
   // $('#message').removeClass('success-message')

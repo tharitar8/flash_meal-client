@@ -2,7 +2,7 @@
 const getFormFields = require('../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
-// const store = require('../store')
+const store = require('../store')
 
 // define event handler
 const onIndexRecipes = () => {
@@ -32,21 +32,26 @@ const onDeleteRecipe = (event) => {
     .catch(ui.onFailure)
 }
 
+const onEditRecipe = (event) => {
+  event.preventDefault()
+  const index = event.target.dataset.index
+  $(`.input-edit-recipe-${index}`).show()
+  $(`.display-data-${index}`).hide()
+}
 const onUpdateRecipe = (event) => {
   event.preventDefault()
+  console.log(event.target)
   const recipeData = getFormFields(event.target)
   const recipeId = $(event.target).data('id')
-  // const recipeId = $(event.target).data('id')
+  store.recipe._id = event.target.dataset.id
   console.log('update')
   api.updateRecipe(recipeData, recipeId)
     .then(ui.onUpdateRecipeSuccess)
     .catch(ui.onFailure)
 }
-
 const onCreateRecipe = (event) => {
   event.preventDefault()
   const recipeData = getFormFields(event.target)
-
   console.log('add')
   api.createRecipe(recipeData)
     .then(ui.onCreateRecipeSuccess)
@@ -70,8 +75,9 @@ module.exports = {
   onIndexRecipes,
   onCreateRecipe,
   onShowRecipe,
-  onUpdateRecipe,
+  onEditRecipe,
   onDeleteRecipe,
   onDynamicDeleteRecipe,
-  onShowIngredients
+  onShowIngredients,
+  onUpdateRecipe
 }
