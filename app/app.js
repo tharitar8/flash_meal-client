@@ -24,7 +24,7 @@ $(() => {
   $('#update-recipe-form').hide()
   $('#shown-recipe').on('click', recipeEvents.onShowRecipe)
   $('#recipe-titles').on('click', '.update-ingredients', recipeEvents.onEditRecipe)
-  $('#recipe-titles').on('click', '.save-ingredients', recipeEvents.onUpdateRecipe)
+  $('#recipe-titles').on('submit', '.save-ingredients', recipeEvents.onUpdateRecipe)
   $('#create-recipe-form').on('submit', recipeEvents.onCreateRecipe)
   $('#recipe-titles').on('click', '.dynamic-delete-recipe', recipeEvents.onDynamicDeleteRecipe)
 })

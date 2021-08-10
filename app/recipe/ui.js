@@ -1,12 +1,41 @@
-// const store = require('../store')
+
 // const getFormFields = require('../../lib/get-form-fields')
 
+// const { data } = require('jquery')
+// const store = require('../store')
+
+// const recipesData = (data) => {
+//   store.recipes = data.recipe
+//   let recipeTitlesHtml = ''
+
+//   store.recipes.forEach((recipe, index) => {
+//   // console.log(recipe)
+//     if (store.user._id === recipe.owner) {
+//       recipeTitlesHtml += `
+//       <p>${recipe.title} </p>
+//       <button class='dynamic-delete-recipe' data-id=${recipe._id}
+//       >Delete Recipe</button>
+//       <br>
+//        <button class='show-ingredients' data-id=${recipe._id}
+//       >show this recipe</button>
+//       <button class='update-ingredients' data-index=${index} data-id=${recipe._id}
+//       >Edit</button>
+//       <div class="hidden" data-ingredient-id=${recipe._id}>
+//       <p>Ingredients:<span class="display-data-${index} display"> ${recipe.ingredients}</span>
+//       <input value="${recipe.ingredients}" class="input-edit-recipe-${index} hidden" type="text"> </p>
+//       <p>Steps:<span class="display-data-${index} display">${recipe.steps}</span>
+//       <input value="${recipe.steps}" class="input-edit-recipe-${index}  hidden" type="text"></p>
+//       <p>Time: <span class="display-data-${index} display">${recipe.time}</span>
+//       <input value="${recipe.time}"  class="input-edit-recipe-${index} hidden" type="number"></p></div>
+//       <button class='save-ingredients' data-index=${index} data-id=${recipe._id}
+//       >save</button>
+//     `
+//     }
+//   })
+//   $('#recipe-titles').html(recipeTitlesHtml)
+// }
 const onIndexRecipesSuccess = (response) => {
-  $('.dashboard').trigger('reset')
-  $('#error-message').text('')
-  // page modifications on successful call
-  // console.log('in then')
-  // console.log('response is: ', response)
+  // const showRecipesHtml = recipesData({ recipes: data.recipe })
   const recipes = response.recipes
   let recipeTitlesHtml = ''
   recipes.forEach((recipe, index) => {
@@ -28,12 +57,16 @@ const onIndexRecipesSuccess = (response) => {
       <input value="${recipe.steps}" class="input-edit-recipe-${index}  hidden" type="text"></p>
       <p>Time: <span class="display-data-${index} display">${recipe.time}</span>
       <input value="${recipe.time}"  class="input-edit-recipe-${index} hidden" type="number"></p></div>
-
-      <button class='save-ingredients' data-index=${index} data-id=${recipe._id}
-      >save</button>
+      
+         <button class='save-ingredients' data-index=${index} data-id=${recipe._id}>save</button>
     `
   })
   $('#recipe-titles').html(recipeTitlesHtml)
+  $('.dashboard').trigger('reset')
+  $('#error-message').text('')
+  // page modifications on successful call
+  // console.log('in then')
+  // console.log('response is: ', response)
   $('#update-recipe-form').show()
 }
 
@@ -89,4 +122,5 @@ module.exports = {
   onUpdateRecipeSuccess,
   onCreateRecipeSuccess,
   onFailure
+  // recipesData
 }

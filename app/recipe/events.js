@@ -44,7 +44,7 @@ const onUpdateRecipe = (event) => {
   const recipeData = getFormFields(event.target)
   const recipeId = $(event.target).data('id')
   store.recipe._id = event.target.dataset.id
-  // console.log('update')
+  console.log('update')
   api
     .updateRecipe(recipeData, recipeId)
     .then(ui.onUpdateRecipeSuccess)
