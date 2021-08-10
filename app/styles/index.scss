@@ -1,5 +1,48 @@
 @import '~bootstrap/scss/bootstrap';
 
+html, body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: 'Poiret One', cursive;
+    background: whitesmoke;
+}
+
+#exampleModalCenter {
+	background: linear-gradient(-45deg, #af3610, rgb(209, 118, 0), red);
+	background-size: 400% 400%;
+	animation: gradient 5s ease infinite
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+.modal-header {
+  background-color: #e28111e5;
+}
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 10;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  text-align: center;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  right: 20%;
+}
 .hidden {
   display: none;
 }

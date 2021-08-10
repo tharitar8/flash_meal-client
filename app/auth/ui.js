@@ -4,7 +4,7 @@ const store = require('../store')
 
 const onSignUpSuccess = (response) => {
   $('form').trigger('reset')
-  console.log('hooray')
+  // console.log('hooray')
   $('#sign-up').hide()
   $('#message-box').text(
     'Thank you for signing up! Please sign in! ' + response.user.email
@@ -45,13 +45,14 @@ const onSignInFailure = () => {
   $('form').trigger('reset')
   $('#change-pw').hide()
   $('#message-box').text('Something went wrong Please try again !')
-  console.log('no')
+  // console.log('no')
   $('.dashboard').hide()
 }
 
 const onChPwSuccess = () => {
   $('form').trigger('reset')
   $('#message-box').text('Password changed! ')
+  $('#sign-out').hide()
   $('#sign-in').show()
   $('#change-pw').hide()
   // $('#close-box').on('click', () => {

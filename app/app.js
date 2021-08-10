@@ -10,6 +10,7 @@ $(() => {
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-pw').hide()
   $('#change-pw').on('submit', authEvents.onChangePassword)
+  $('#sign-out').hide()
   $('#sign-out').on('click', authEvents.onSignOut)
   $('#log-out').on('click', authEvents.onSignOut)
   $('#close-box').hide()
@@ -22,12 +23,8 @@ $(() => {
   $('#delete-recipe-form').on('submit', recipeEvents.onDeleteRecipe)
   $('#update-recipe-form').hide()
   $('#shown-recipe').on('click', recipeEvents.onShowRecipe)
-  $('body').on('click', '.update-ingredients', recipeEvents.onEditRecipe)
-  $('body').on('change', '.save-ingredients', recipeEvents.onUpdateRecipe)
+  $('#recipe-titles').on('click', '.update-ingredients', recipeEvents.onEditRecipe)
+  $('#recipe-titles').on('click', '.save-ingredients', recipeEvents.onUpdateRecipe)
   $('#create-recipe-form').on('submit', recipeEvents.onCreateRecipe)
-  $('#recipe-titles').on(
-    'click',
-    '.dynamic-delete-recipe',
-    recipeEvents.onDynamicDeleteRecipe
-  )
+  $('#recipe-titles').on('click', '.dynamic-delete-recipe', recipeEvents.onDynamicDeleteRecipe)
 })

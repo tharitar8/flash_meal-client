@@ -5,7 +5,7 @@ const getFormFields = require('../../lib/get-form-fields')
 const store = require('../store')
 
 const onSignUp = (event) => {
-  console.log('hooray we made it')
+  // console.log('hooray we made it')
   event.preventDefault()
   const data = getFormFields(event.target)
   api.signUp(data)

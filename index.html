@@ -12,16 +12,19 @@
 
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/365534cda1.js" crossorigin="anonymous"></script>
       <title>Flash Meal-15 mins Meal</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
     </head>
 
     <body>
     <p id="message"></p>
     <p id="error-message"></p>
-      <h1>Flash Meal Recipes</h1>
+
+
       <div class="container">
-
-
       <div class="modal fade show" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-modal="true" style="display: block; padding-left: 15px;">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -37,6 +40,7 @@
               <div class="col-md mb-md-10 p-10">
                 <div class="modal-body p-10">
                   <form id="sign-in">
+                  <i class="fas fa-users"></i>
                   <h3 class="mb-10">Sign In</h3>
                   <form action="#" class="signin-form">
 
@@ -61,13 +65,11 @@
                 </div>
               </div>
 
-
-
               <div class="col-md-1 divider"></div>
               <div class="col-md">
                 <div class="modal-body p-10">
                   <form id="sign-up">
-                  <h3 class="mb-2">Sign Up</h3>
+                <i class="fas fa-user-plus"></i> <h3 class="mb-2">Sign Up</h3>
 
                   <form action="#" class="signup-form">
 
@@ -95,6 +97,7 @@
                       <button type="submit" class="form-control btn btn-primary rounded submit px-3">Change Password</button>
                     </form>
                     </div>
+                    <br>
                     <button id="sign-out">Sign Out</button>
                     <div class="form-group">
                       <div class="w-100">
@@ -112,21 +115,21 @@
 
 <!-- Recipe DashBoard Show here -->
 
+
+
+      <button id="log-out">Log Out</button>
+      <!-- <form action="/action_page.php">
+        <label for="img">Select image:</label>
+        <input type="file" id="img" name="img" accept="image/*">
+        <br>
+        <input type="submit">
+      </form>-->
         <div class="dashboard">
-
-          <h2>Hi, Are you ready to share a recipe ? </h2>
-          <button id="log-out">Log Out</button>
-
+          <h1>Flash Meal Recipes</h1>
+          <h3>Hi, Are you ready to share a recipe ? </h3>
           <br>
-          <form action="/action_page.php">
-            <label for="img">Select image:</label>
-            <input type="file" id="img" name="img" accept="image/*">
-            <br>
-            <input type="submit">
-          </form>
-
           <h3>Add a Recipe</h3>
-          <form style="display:flex" id="create-recipes" class="form"></form>
+          <form id="create-recipes" class="form"></form>
           <form id="create-recipe-form">
             <label>Recipe Title</label>
             <input name="recipe[title]" type="text"
@@ -140,29 +143,14 @@
             <input name="recipe[time]" type="number" placeholder="Time">
             <button type="submit">Submit</button>
           </form>
-
           <br>
-          <form style="display:flex" id="get-recipe" class="form"></form>
+
+          <form id="get-recipe" class="form"></form>
           <button id="get-recipes">Show All Recipes</button>
-<!-- 
-          <br>
-            <form style="display:flex" id="update-recipe" class="form">
-              <form id="update-recipe-form">
-            <h4>Update Recipe</h4>
-            <input name="recipe[title]" type="text" placeholder="Name">
-            <label>Ingredients</label>
-            <input name="recipe[ingredients]" type="text" placeholder="ingredients">
-            <label>Steps:</label>
-            <input name="recipe[steps]" type="text" placeholder="How to">
-            <label>Time:</label>
-            <input name="recipe[time]" type="number" placeholder="Time">
-              </form>
-              </form> -->
-
             <br>
             <div id="created-recipe"></div>
             <div id="shown-recipe"></div>
             <div id="recipe-titles"></div>
-        </div>
+            </div>
     </body>
 </html>
