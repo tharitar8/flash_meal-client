@@ -2,7 +2,6 @@
 const getFormFields = require('../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
-const store = require('../store')
 
 // define event handler
 const onIndexRecipes = () => {
@@ -43,10 +42,9 @@ const onUpdateRecipe = (event) => {
   // console.log(event.target)
   const recipeData = getFormFields(event.target)
   const recipeId = $(event.target).data('id')
-  store.recipe._id = event.target.dataset.id
   console.log('update')
   api
-    .updateRecipe(recipeData, recipeId)
+    .updateRecipe(recipeId, recipeData)
     .then(ui.onUpdateRecipeSuccess)
     .then(() => {
       onIndexRecipes(event)
