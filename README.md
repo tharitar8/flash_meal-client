@@ -1,7 +1,8 @@
-<a href="https://imgur.com/vhiligV"><img src="https://i.imgur.com/vhiligV.jpg" title="source: imgur.com" /></a>
+
+
 
 This project is "Flash Meal" (make a meal under 15 minutes)
-
+<a href="https://imgur.com/vhiligV"><img src="https://i.imgur.com/vhiligV.jpg" title="source: imgur.com" /></a>
 My idea of this project is I would like to have some place that everyone can come an upload or share their recipes of their dish that can cook under 15 -30 mins . The reason I came up with this idea because I like to cook and sometimes I'm in a rush (time is valuable). This app is for everyone that would like fast food but homemade.  Person that use this app can be everyone since a beginner or intermediate level of cooking skill  
 ```
 Deploy Application link : https://tharitar8.github.io/flash_meal-client/
