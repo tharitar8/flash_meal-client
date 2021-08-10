@@ -98,6 +98,7 @@
                     </form>
                     </div>
                     <br>
+                    <i class="fas fa-sign-out-alt"></i>
                     <button id="sign-out">Sign Out</button>
                     <div class="form-group">
                       <div class="w-100">
@@ -124,31 +125,39 @@
         <br>
         <input type="submit">
       </form>-->
-      <button id="log-out">Log Out</button>
+      <div class="text-right">
+        <i id="icon-logout" class="fas fa-sign-out-alt"></i>
+        <button type="button" class="log-out">Log Out</button>
+      </div>
         <div class="dashboard">
           <h1>Flash Meal Recipes</h1>
           <h3>Hi, Are you ready to share a recipe ? </h3>
           <br>
+          <br>
           <h3>Add a Recipe</h3>
           <form id="create-recipes" class="form"></form>
           <form id="create-recipe-form">
-            <label>Recipe Title</label>
+            <br>
+            <label>Name </label>
             <input name="recipe[title]" type="text"
             placeholder="Name">
+            <br>
             <label>Ingredients</label>
             <input name="recipe[ingredients]"
             type="text" placeholder="ingredients">
+            <br>
             <label>Steps:</label>
             <input name="recipe[steps]" type="text" placeholder="How to">
+            <br>
             <label>Time:</label>
             <input name="recipe[time]" type="number" placeholder="Time">
+            <br>
             <button type="submit">Submit</button>
           </form>
-            <button type="save-ingredient">Save</button>
           <br>
 
-          <form id="get-recipe" class="form"></form>
-          <button id="get-recipes">Show All Recipes</button>
+          <!-- <form id="get-recipe" class="form"></form> -->
+            <button id="get-recipes">Show All Recipes</button>
             <br>
             <div id="created-recipe"></div>
             <div id="shown-recipe"></div>

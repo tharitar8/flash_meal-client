@@ -24,7 +24,9 @@ const onSignUpFailure = () => {
 const onSignInSuccess = (response) => {
   store.user = response.user
   $('form').trigger('reset')
-  $('#message-box').text('Welcome back! ' + response.user.email)
+  $('.log-out').show()
+  $('#icon-logout').show()
+  $('#message-box').text('Welcome back! ' + response.user.email).show()
   $('#sign-in').hide()
   $('#log-in').hide()
   $('#sign-up').hide()
@@ -70,6 +72,7 @@ const onChPwFailure = () => {
 }
 
 const onSignOutSuccess = () => {
+  $('#icon-logout').hide()
   $('#message-box').text("You've been logged out ").show().delay(3000).fadeOut()
   $('.container').show()
   $('#close-box').hide()

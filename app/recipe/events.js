@@ -14,9 +14,8 @@ const onIndexRecipes = () => {
 const onShowRecipe = (event) => {
   event.preventDefault()
   // console.log('in form listener')
-  const recipeData = getFormFields(event.target)
-  const recipeId = recipeData.recipe._id
-  api.showRecipe(recipeId)
+  const id = $(event.target).data('id')
+  api.showRecipe(id)
     .then(ui.onShowRecipeSuccess)
     .catch(ui.onFailure)
 }
@@ -57,6 +56,8 @@ const onCreateRecipe = (event) => {
   // console.log('add')
   api
     .createRecipe(recipeData)
+    .then(api.indexRecipes)
+    .then(ui.onIndexRecipesSuccess)
     .then(ui.onCreateRecipeSuccess)
     .catch(ui.onFailure)
 }

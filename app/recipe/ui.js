@@ -10,21 +10,17 @@ const onIndexRecipesSuccess = (response) => {
     recipeTitlesHtml += `
       <p>${recipe.title} </p>
 
+      <br>
       <button class='dynamic-delete-recipe' data-id=${recipe._id}
       >Delete Recipe</button>
       <br>
        <button class='show-ingredients' data-id=${recipe._id}
       >show this recipe</button>
+      <br>
       <button class='update-ingredients' data-index=${index} data-id=${recipe._id}
       >Edit</button>
+      <br>
       <form class="save-ingredients" data-id=${recipe._id}>
-      <div class="hidden" data-ingredient-id=${recipe._id}>
-      <p>Ingredients:<span class="display-data-${index} display"> ${recipe.ingredients}</span>
-      <input name="recipe[ingredients]" value="${recipe.ingredients}" class="input-edit-recipe-${index} hidden" type="text"> </p>
-      <p>Steps:<span class="display-data-${index} display">${recipe.steps}</span>
-      <input name="recipe[steps]" value="${recipe.steps}" class="input-edit-recipe-${index}  hidden" type="text"></p>
-      <p>Time: <span class="display-data-${index} display">${recipe.time}</span>
-      <input name="recipe[time]" value="${recipe.time}"  class="input-edit-recipe-${index} hidden" type="number"></p></div>
          <button type="submit" data-index=${index}>save</button>
          </form>
     `
@@ -41,13 +37,36 @@ const onIndexRecipesSuccess = (response) => {
 const onShowRecipeSuccess = (response) => {
   $('#error-message').text('')
   $('#show-recipe-form').attr('recipe._id')
-  $('#shown-recipe').html(`
-    <h3>Title: ${response.recipe.title}</h3>
-    <p>Ingredients: ${response.recipe.ingredients}</p>
-    <p>Steps: ${response.recipe.steps}</p>
-    <p>Time: ${response.recipe.time}</p>
-  `)
+  const recipe = response.recipe
+  const recipeHtml = `
+      <br>
+      <button class='dynamic-delete-recipe' data-id=${recipe._id}
+      >Delete Recipe</button>
+      <br>
+       <button class='show-ingredients' data-id=${recipe._id}
+      >show this recipe</button>
+      <br>
+      <button class='update-ingredients' data-index=${0} data-id=${recipe._id}
+      >Edit</button>
+      <br>
+      <form class="save-ingredients" data-id=${recipe._id}>
+      <div data-ingredient-id=${recipe._id}>
+      <br>
+      <p>Ingredients:<span class="display-data-${0} display"> ${recipe.ingredients}</span>
+      <input name="recipe[ingredients]" value="${recipe.ingredients}" class="input-edit-recipe-${0} hidden" type="text"> </p>
+      <br>
+      <p>Steps:<span class="display-data-${0} display">${recipe.steps}</span>
+      <input name="recipe[steps]" value="${recipe.steps}" class="input-edit-recipe-${0}  hidden" type="text"></p>
+      <br>
+      <p>Time: <span class="display-data-${0} display">${recipe.time}</span>
+      <input name="recipe[time]" value="${recipe.time}"  class="input-edit-recipe-${0} hidden" type="number"></p></div>
+      <br>
+         <button type="submit" data-index=${0}>save</button>
+         </form>
+    `
   $('form').trigger('reset')
+  $('#recipe-titles').html('')
+  $('#recipe-titles').html(recipeHtml)
 }
 
 const onDeleteRecipeSuccess = (response) => {
@@ -67,12 +86,10 @@ const onUpdateRecipeSuccess = (id) => {
 
 const onCreateRecipeSuccess = (response) => {
   $('form').trigger('reset')
-  $('.dashboard').trigger('reset')
+  $('#recipe-titles').trigger('reset')
   $('#error-message').text('')
   // console.log('Server response:', response)
-  $('#created-recipe').html(`
-    <h3>Title: ${response.recipe.title}</h3>
-  `)
+  $('#created-recipe').html('Create was successfully').show().delay(3000).fadeOut()
 }
 
 const onFailure = (error) => {
