@@ -39,6 +39,7 @@ const onShowRecipeSuccess = (response) => {
   $('#show-recipe-form').attr('recipe._id')
   const recipe = response.recipe
   const recipeHtml = `
+      <p>"${recipe.title}"</p>
       <br>
       <button class='dynamic-delete-recipe' data-id=${recipe._id}
       >Delete Recipe</button>
@@ -52,14 +53,22 @@ const onShowRecipeSuccess = (response) => {
       <form class="save-ingredients" data-id=${recipe._id}>
       <div data-ingredient-id=${recipe._id}>
       <br>
-      <p>Ingredients:<span class="display-data-${0} display"> ${recipe.ingredients}</span>
-      <input name="recipe[ingredients]" value="${recipe.ingredients}" class="input-edit-recipe-${0} hidden" type="text"> </p>
+      <p>Ingredients:<span class="display-data-${0} display"> ${
+    recipe.ingredients
+  }</span>
+      <input name="recipe[ingredients]" value="${
+        recipe.ingredients
+      }" class="input-edit-recipe-${0} hidden" type="text"> </p>
       <br>
       <p>Steps:<span class="display-data-${0} display">${recipe.steps}</span>
-      <input name="recipe[steps]" value="${recipe.steps}" class="input-edit-recipe-${0}  hidden" type="text"></p>
+      <input name="recipe[steps]" value="${
+        recipe.steps
+      }" class="input-edit-recipe-${0}  hidden" type="text"></p>
       <br>
       <p>Time: <span class="display-data-${0} display">${recipe.time}</span>
-      <input name="recipe[time]" value="${recipe.time}"  class="input-edit-recipe-${0} hidden" type="number"></p></div>
+      <input name="recipe[time]" value="${
+        recipe.time
+      }"  class="input-edit-recipe-${0} hidden" type="number"></p></div>
       <br>
          <button type="submit" data-index=${0}>save</button>
          </form>

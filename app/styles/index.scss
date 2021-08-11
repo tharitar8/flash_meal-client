@@ -3,9 +3,16 @@
 html, body {
     height: 100%;
 }
+.header {
+  padding: 20px;
+  text-align: center;
+  background: #dd9b9b7c;
+  color: white;
+  font-size: 30px;
+}
+
 body {
     font-family: 'Poiret One', cursive;
-    background: whitesmoke;
 }
 
 #exampleModalCenter {
@@ -28,6 +35,10 @@ body {
 .modal-header {
   background-color: #e28111e5;
 }
+input {
+   background: rgba(161, 182, 185, 0.5);
+    font: 20px sans-serif;
+}
 .dashboard {
   display: flex;
   flex-direction: column;
@@ -48,4 +59,16 @@ body {
 }
 .log-out{
   justify-items: right;
+}
+#myVideo {
+  opacity: 70%;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
 }
