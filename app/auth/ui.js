@@ -49,6 +49,7 @@ const onSignInFailure = () => {
   $('#message-box').text('Something went wrong Please try again !')
   // console.log('no')
   $('.dashboard').hide()
+  $('#close-box').hide()
 }
 
 const onChPwSuccess = () => {
@@ -59,6 +60,7 @@ const onChPwSuccess = () => {
   $('#change-pw').hide()
   // $('#close-box').on('click', () => {
   $('.dashboard').hide()
+  $('#close-box').hide()
   // })
 }
 const onChPwFailure = () => {
@@ -69,6 +71,7 @@ const onChPwFailure = () => {
     .delay(3000)
     .fadeOut()
   $('.dashboard').hide()
+  $('#close-box').hide()
 }
 
 const onSignOutSuccess = () => {
@@ -91,6 +94,8 @@ const onSignOutFailure = () => {
     .delay(3000)
     .fadeOut()
   $('.dashboard').hide()
+  $('#close-box').hide()
+  $('#sign-up').show()
 }
 
 module.exports = {
