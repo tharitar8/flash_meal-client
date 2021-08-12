@@ -41,6 +41,7 @@ const onSignInSuccess = (response) => {
   $('#close-box').on('click', () => {
     $('.dashboard').show()
   })
+  $('#agreement').hide()
 }
 
 const onSignInFailure = () => {
@@ -50,6 +51,8 @@ const onSignInFailure = () => {
   // console.log('no')
   $('.dashboard').hide()
   $('#close-box').hide()
+  $('#agreement').hide()
+  $('#sign-up').show()
 }
 
 const onChPwSuccess = () => {
@@ -61,22 +64,20 @@ const onChPwSuccess = () => {
   // $('#close-box').on('click', () => {
   $('.dashboard').hide()
   $('#close-box').hide()
+  $('#agreement').hide()
   // })
 }
 const onChPwFailure = () => {
   $('#change-pw')[0].reset()
-  $('#message-box')
-    .text('Something Wrong Please Try agin!')
-    .show()
-    .delay(3000)
-    .fadeOut()
+  $('#message-box').text('Something Wrong Please Try agin!').show().delay(3000).fadeOut()
   $('.dashboard').hide()
   $('#close-box').hide()
+  $('#agreement').hide()
 }
 
 const onSignOutSuccess = () => {
   $('#icon-logout').hide()
-  $('#message-box').text("You've been logged out ").show().delay(3000).fadeOut()
+  $('#message-box').text("You've been logged out ").show()
   $('.container').show()
   $('#close-box').hide()
   $('#change-pw').hide()
@@ -85,17 +86,15 @@ const onSignOutSuccess = () => {
   $('#sign-in').show()
   $('h2').show()
   $('.dashboard').hide()
+  $('#agreement').hide()
 }
 
 const onSignOutFailure = () => {
-  $('#message-box')
-    .text('Sign Out Failed !')
-    .show()
-    .delay(3000)
-    .fadeOut()
+  $('#message-box').text('Sign Out Failed !').show()
   $('.dashboard').hide()
   $('#close-box').hide()
   $('#sign-up').show()
+  $('#agreement').hide()
 }
 
 module.exports = {

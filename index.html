@@ -25,6 +25,7 @@
     <body>
     <p id="message"></p>
     <p id="error-message"></p>
+
       <video autoplay muted loop id="myVideo">
         <source src="https://streamable.com/l/vlc938/mp4.mp4" type="video/mp4">
       </video>
@@ -106,7 +107,7 @@
                     <button id="sign-out">Sign Out</button>
                     <div class="form-group">
                       <div class="w-100">
-                        <p class="mb-10">By creating an account, your agree to our terms.</p>
+                        <p id="agreement" class="mb-10">By creating an account, your agree to our terms.</p>
                       </div>
                     </div>
                   </form>
@@ -131,7 +132,7 @@
       </form>-->
 
       <div class="text-right">
-        <i id="icon-logout" class="fas fa-sign-out-alt"></i>
+        <i id="iconn-logout" class="fas fa-sign-out-alt"></i>
         <button type="button" class="log-out">Log Out</button>
       </div>
 
@@ -162,7 +163,7 @@
             <button type="submit">Submit</button>
           </form>
           <br>
-
+            <p id="success-message"></p>
           <!-- <form id="get-recipe" class="form"></form> -->
             <button id="get-recipes">Show All Recipes</button>
             <br>
