@@ -1,0 +1,87 @@
+# Query: console.log
+# Flags: WordMatch
+# ContextLines: 1
+
+20 results - 5 files
+
+get-form-fields.md:
+   50    const bookData = getFormFields(form)
+   51:   console.log(bookData) // returned JavaScript object
+   52  })
+
+  112  data['movie']['title'] = 'A movie title our user gave us'
+  113: console.log(data)
+  114  /*
+
+  121  data['book']['author'] = 'A book author we want to be grouped with the book title'
+  122: console.log(data)
+  123  /*
+
+app/auth/events.js:
+  7  const onSignUp = (event) => {
+  8:   // console.log('hooray we made it')
+  9    event.preventDefault()
+
+app/auth/ui.js:
+   6    $('form').trigger('reset')
+   7:   // console.log('hooray')
+   8    $('#sign-up').hide()
+
+  47    $('#message-box').text('Something went wrong Please try again !')
+  48:  // console.log('no')
+  49    $('.dashboard').hide()
+
+app/recipe/events.js:
+   8  const onIndexRecipes = () => {
+   9:  // console.log('in event listener')
+  10    // api call
+
+  16    event.preventDefault()
+  17:   // console.log('in form listener')
+  18    const recipeData = getFormFields(event.target)
+
+  28    // const deleteId = $(event.target).data('id')
+  29:  // console.log('delete')
+  30    api.deleteRecipe(deleteId)
+
+  46    event.preventDefault()
+  47:  // console.log(event.target)
+  48    const recipeData = getFormFields(event.target)
+
+  50    store.recipe._id = event.target.dataset.id
+  51:   //console.log('update')
+  52    api
+
+  62    const recipeData = getFormFields(event.target)
+  63:   // console.log('add')
+  64    api
+
+  69  const onDynamicDeleteRecipe = (event) => {
+  70:   // console.log($(event.target).data('id'))
+  71    const recipeId = $(event.target).data('id')
+
+  80  const onShowIngredients = (event) => {
+  81:   // console.log(event.target)
+  82    const id = $(event.target).data('id')
+
+app/recipe/ui.js:
+   7    // page modifications on successful call
+   8:   // console.log('in then')
+   9:   // console.log('response is: ', response)
+  10    const recipes = response.recipes
+
+  12    recipes.forEach((recipe, index) => {
+  13:   //  console.log(recipe)
+  14      recipeTitlesHtml += `
+
+  54    $('#error-message').text('')
+  55:  // console.log(`Server response: ${response}`)
+  56    $('#success-message').text('Recipe was deleted')
+
+  61    $('#error-message').text('')
+  62:   // console.log(`Server response: ${id}`)
+  63    $('#success-message').text('Recipe was updated')
+
+  69    $('#error-message').text('')
+  70:   // console.log('Server response:', response)
+  71    $('#created-recipe').html(`
